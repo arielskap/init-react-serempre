@@ -11,7 +11,7 @@ function App() {
   const locale = pathname.split("/")[0] || "es"
   const localeActual = locales[locale]
 	const messages = localeActual[pathname]
-  console.log({location})
+
   return (
     <div className="App">
     <IntlProvider
