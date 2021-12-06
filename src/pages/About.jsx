@@ -1,27 +1,16 @@
 import Layout from "@components/Layout"
-import { Link } from "react-router-dom";
-import Title from "../components/Title/Title";
-import { connect } from "react-redux";
-import * as usuariosActions from "../actions/usuariosActions";
-import { useEffect } from "react";
+import { useDictionary } from "../hooks/useDictionary";
 
-const About = (props) => {
-	useEffect(() => {
-		props.getAll()
-	}, [])
+const About = () => {
+	const [getWords] = useDictionary()
 
 	return (
-		<Layout>
-			<Title>Hola estas en About! 🏄🏻‍♂️</Title>
-			<nav>
-        <Link to="/">Home</Link>
-      </nav>
+		<Layout title={getWords("title")}>
+			<section className="flex items-center justify-center">
+				<p className="text-center">Somos más que una empresa que desarrolla software. Somos un equipo de expertos y expertas, listos para afrontar los retos más complejos.</p>
+			</section>
 		</Layout>
 	)
 }
 
-const mapStateToProps = (reducers) => {
-	return reducers.usuariosReducer
-}
-
-export default connect(mapStateToProps, usuariosActions)(About)
+export default About

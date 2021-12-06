@@ -1,20 +1,39 @@
 import Layout from "@components/Layout"
-import { Link } from "react-router-dom";
-import Title from "../components/Title/Title";
+import { useEffect } from "react";
 import { useDictionary } from "../hooks/useDictionary";
+import { connect } from "react-redux";
+import * as characterActions from "../actions/characterActions"
 
-const Home = () => {
+const Home = (props) => {
 	const [getWords] = useDictionary()
 
+	useEffect(() => {
+		const fetchCharacters = async () => {
+			const result = await fetch("https://rickandmortyapi.com/api/character")
+			const characters = await result.json()
+			props.chargeCharacters(characters.results)
+		}
+		fetchCharacters()
+	}, [])
+
 	return (
-		<Layout>
-			<Title>{getWords("title")}</Title>
-			<p>Palabra secreta: "{process.env.SECRET_WORD || "No se agrego en la variable de entorno..."}"</p>
-			<nav>
-        <Link to="/about">About</Link>
-      </nav>
+		<Layout title={getWords("title")}>
+			<section className="grid grid-cols-5 gap-2">
+				{props.characters.map(({ id, image, name }) => {
+					return (
+						<div className="p-2 border border-blue-200 rounded-xl" key={`character-${id}`}>
+							<img src={image} alt={name}/>
+							<p className="font-bold text-center">{name}</p>
+						</div>
+					)
+				})}
+			</section>
 		</Layout>
 	)
 }
 
-export default Home
+const mapStateToProps = (reducers) => {
+	return reducers.characterReducer
+}
+
+export default connect(mapStateToProps, characterActions)(Home)
