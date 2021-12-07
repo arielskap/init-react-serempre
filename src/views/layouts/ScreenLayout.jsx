@@ -1,5 +1,5 @@
 import SerempreLogoImg from "@images/logo.png"
-import Title from "../Title"
+import Title from "@views/components/shared/Title"
 import { Link } from "react-router-dom"
 
 const Layout = ({ children, title }) => {

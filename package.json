@@ -9,17 +9,25 @@
     "dev": "webpack serve --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.js"
   },
+  "babelMacros": {
+    "twin": {
+      "preset": "styled-components",
+      "autoCssProp": false
+    }
+  },
   "dependencies": {
     "@babel/runtime": "^7.16.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-intl": "^5.23.0",
     "react-is": "^17.0.2",
+    "react-modal": "^3.14.4",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
     "redux": "^4.1.2",
     "redux-thunk": "^2.4.1",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "twin.macro": "^2.8.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",
@@ -28,6 +36,7 @@
     "@babel/preset-react": "^7.16.0",
     "autoprefixer": "^10.4.0",
     "babel-loader": "^8.2.3",
+    "babel-plugin-macros": "^3.1.0",
     "babel-plugin-styled-components": "^2.0.2",
     "css-loader": "^6.5.1",
     "dotenv-webpack": "^7.0.3",

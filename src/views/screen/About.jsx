@@ -1,5 +1,5 @@
-import Layout from "@components/Layout"
-import { useDictionary } from "../hooks/useDictionary";
+import Layout from "@views/layouts/ScreenLayout"
+import { useDictionary } from "@controllers/hooks/useDictionary";
 
 const About = () => {
 	const [getWords] = useDictionary()

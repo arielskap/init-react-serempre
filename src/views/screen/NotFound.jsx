@@ -1,5 +1,5 @@
-import Layout from "@components/Layout"
-import Title from "../components/Title"
+import Layout from "@views/layouts/ScreenLayout"
+import Title from "@views/components/shared/Title"
 
 const NotFound = () => {
 	return (

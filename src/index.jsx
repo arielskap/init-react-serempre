@@ -4,9 +4,11 @@ import { BrowserRouter } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux"
 import { Provider } from "react-redux"
 import reduxThunk from "redux-thunk"
-import App from "@containers/App";
-import reducers from "./reducers";
+import App from "@views/containers/App";
+import reducers from "@controllers/reducers";
+import GlobalStyles from "@styles/GlobalStyles";
 import "@styles/global.css";
+
 
 const store = createStore(
   reducers,
@@ -17,6 +19,7 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store} >
     <BrowserRouter>
+      <GlobalStyles />
       <App />
     </BrowserRouter>
   </Provider>
