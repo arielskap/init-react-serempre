@@ -1,11 +1,12 @@
-import Layout from "@views/layouts/ScreenLayout"
 import Title from "@views/components/shared/Title"
 
 const NotFound = () => {
+	const { ScreenLayout } = useLayouts()
+
 	return (
-		<Layout>
+		<ScreenLayout>
 			<Title>Pagina no encontrada 😵‍💫</Title>
-		</Layout>
+		</ScreenLayout>
 	)
 }
 

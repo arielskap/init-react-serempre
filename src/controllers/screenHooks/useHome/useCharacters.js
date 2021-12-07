@@ -1,7 +1,10 @@
-import { getCharacters } from "@api/services"
+import useApi from "@api"
 import { useEffect } from "react"
 
-export const useCharacters = (funcChargeCharacter, charactersData = []) => {
+const useCharacters = (funcChargeCharacter, charactersData = []) => {
+	const { useServices } = useApi()
+	const { getCharacters } = useServices()
+
 	useEffect(() => {
 		if (!charactersData || !charactersData.length) {
 			const fetchCharacters = async () => {
@@ -14,3 +17,5 @@ export const useCharacters = (funcChargeCharacter, charactersData = []) => {
 
 	return charactersData
 }
+
+export default useCharacters

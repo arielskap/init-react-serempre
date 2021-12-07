@@ -1,10 +1,10 @@
-import Style from "./Title.styles"
+import { StyledTitle } from "./Title.styles"
 
 const Title = ({ children }) => {
 	return (
-		<Style.Title>
+		<StyledTitle>
 			{children}
-		</Style.Title>
+		</StyledTitle>
 	)
 }
 

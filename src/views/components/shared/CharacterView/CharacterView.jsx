@@ -1,10 +1,13 @@
 import { connect } from "react-redux";
-import { useCharacters } from "@controllers/hooks/useCharacters";
-import * as characterActions from "@controllers/actions/characterActions"
 import Character from "@views/components/shared/Character"
+import useControllers from "@controllers";
+import useApi from "@api"
 
 const CharacterView = (props) => {
 	const { chargeCharacters, characters } = props
+	const { useScreenHooks } = useControllers()
+	const { useHome } = useScreenHooks()
+	const { useCharacters } = useHome()
 	useCharacters(chargeCharacters, characters)
 
 	return (
@@ -20,4 +23,4 @@ const mapStateToProps = (reducers) => {
 	return reducers.characterReducer
 }
 
-export default connect(mapStateToProps, characterActions)(CharacterView)
+export default connect(mapStateToProps, useApi().useActions())(CharacterView)

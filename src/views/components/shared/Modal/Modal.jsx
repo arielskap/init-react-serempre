@@ -1,5 +1,5 @@
 import ReactModal from 'react-modal';
-import { customStyles } from '@config/reactModal/style';
+import { customStyles } from './Modal.styles';
 
 const Modal = ({ contentLabel, isOpen, onClose, children }) => {
 	return (

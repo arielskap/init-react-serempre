@@ -1,11 +1,13 @@
-import Style from "./Character.styles"
+import { StyledButtonContainer, StyledImage, StyledName } from "./Character.styles"
 
-const Character = ({ name, image }) => {
+const Character = (props) => {
+	const { name, image } = props
+
 	return (
-		<Style.ButtonContainer>
-			<Style.Image src={image} alt={name}/>
-			<Style.Name>{name}</Style.Name>
-		</Style.ButtonContainer>
+		<StyledButtonContainer>
+			<StyledImage src={image} alt={name}/>
+			<StyledName>{name}</StyledName>
+		</StyledButtonContainer>
 	)
 }
 

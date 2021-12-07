@@ -1,8 +1,10 @@
 import { useLocation } from "react-router"
-import * as locales from "@config/lang"
+import useConfig from "@config"
 
-export const useIntlInit = () => {
+const useIntlInit = () => {
 	const location = useLocation()
+	const { useLang } = useConfig()
+	const locales = useLang()
   const { pathname } = location
   const locale = pathname.split("/")[0] || "es"
   const localeActual = locales[locale]
@@ -14,3 +16,5 @@ export const useIntlInit = () => {
 		messages
 	}
 }
+
+export default useIntlInit

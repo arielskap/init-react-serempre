@@ -4,14 +4,15 @@ import { BrowserRouter } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux"
 import { Provider } from "react-redux"
 import reduxThunk from "redux-thunk"
-import App from "@views/containers/App";
-import reducers from "@controllers/reducers";
+import App from "./containers/App";
+import useModels from "@models";
 import GlobalStyles from "@styles/GlobalStyles";
 import "@styles/global.css";
 
+const { useReducers } = useModels()
 
 const store = createStore(
-  reducers,
+  useReducers(),
   {},
   applyMiddleware(reduxThunk)
 )

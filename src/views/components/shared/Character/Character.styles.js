@@ -1,27 +1,19 @@
 import tw, { styled } from 'twin.macro'
 
-const ButtonContainer = styled.button.attrs({
-	className: "ButtonContainer"
+export const StyledButtonContainer = styled.button.attrs({
+	className: "StyledButtonContainer"
 })`
 	${tw`transition-transform duration-500 transform border border-blue-200 cursor-pointer rounded-xl hover:scale-105`}
 `;
 
-const Image = styled.img.attrs({
-	className: "Image"
+export const StyledImage = styled.img.attrs({
+	className: "StyledImage"
 })`
 	${tw`object-contain rounded-t-xl`}
 `;
 
-const Name = styled.p.attrs({
-	className: "Name"
+export const StyledName = styled.p.attrs({
+	className: "StyledName"
 })`
 	${tw`font-bold text-center`}
 `;
-
-const Styles = {
-	ButtonContainer,
-	Image,
-	Name
-}
-
-export default Styles
